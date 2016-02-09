@@ -13,16 +13,16 @@ echo $current
 
 # Get A List Of AD Network Share Groups User Is A Member Of
 
-groups=$(dscl /Active\ Directory/KORS/All\ Domains read /Users/$user dsAttrTypeNative:memberOf | tr " " '\n' | grep -E "\-W|\-R" tr " " '\n' | cut -d "=" -f 2 | cut -f1 -d"," )
+groups=$(dscl /Active\ Directory/KORS/All\ Domains read /Users/$user dsAttrTypeNative:memberOf | tr " " '\n' | grep -E "\-W|\-R" | tr " " '\n' | cut -d "=" -f 2 | cut -f1 -d"," )
 
 # Compare Shares User Has Mounted Against All Shares User Has Access To, Output Only Unmounted Shares
 
-#if [ "$current" = "" ]; then
-#	sharestomount=$groups
-#else
-#	sharestomount=$(echo "$groups" | grep -i -v "$current" )
-#	echo $sharestomount
-#fi
+if [ "$current" = "" ]; then
+	sharestomount=$groups
+else
+	sharestomount=$(echo "$groups" | grep -i -v "$current" )
+	echo $sharestomount
+fi
 
 echo $groups
 

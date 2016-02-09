@@ -17,8 +17,8 @@ groups=$(dscl /Active\ Directory/KORS/All\ Domains read /Users/$user dsAttrTypeN
 
 # Compare Shares User Has Mounted Against All Shares User Has Access To, Output Only Unmounted Shares
 
-if [ "$current" = "" ]; then
-	sharestomount=$groups
+#if [ "$current" = "" ]; then
+#	sharestomount=$groups
 #else
 #	sharestomount=$(echo "$groups" | grep -i -v "$current" )
 #	echo $sharestomount

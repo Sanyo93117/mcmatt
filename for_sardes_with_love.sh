@@ -20,7 +20,7 @@ groups=$(dscl /Active\ Directory/KORS/All\ Domains read /Users/$user dsAttrTypeN
 if [ "$current" = "" ]; then
 	sharestomount=$groups
 else
-	sharestomount=$(echo "$groups" | grep -i -v "$current" | )
+	sharestomount=$(echo "$groups" | grep -i -v "$current" )
 	echo $sharestomount
 fi
 

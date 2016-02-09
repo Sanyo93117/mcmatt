@@ -24,3 +24,10 @@ else
 	echo $sharestomount
 fi
 
+# Mount users' home share
+
+if [ "$currentshares" != $user ]; then
+	mkdir -p /Volumes/$user
+	mount -t smbfs //$user:$1"@"mknjfs01.kors.local'/$user"$" /Volumes/$user
+fi
+

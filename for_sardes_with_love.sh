@@ -24,5 +24,3 @@ else
 	echo $sharestomount
 fi
 
-echo $groups
-
